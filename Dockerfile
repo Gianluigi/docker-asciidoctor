@@ -27,4 +27,4 @@ RUN gem install --no-ri --no-rdoc asciidoctor-epub3 --pre
 
 ENV MATHEMATICAL_SKIP_STRDUP=1
 RUN gem install --no-ri --no-rdoc asciidoctor-mathematical
-CMD ["/bin/bash"]
+CMD [ "irb" ]

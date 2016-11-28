@@ -17,14 +17,13 @@ RUN apt-get update && apt-get install -y \
   default-jre            \
   graphviz
 
-RUN gem install --no-ri --no-rdoc asciidoctor
-RUN gem install --no-ri --no-rdoc asciidoctor-diagram
-RUN gem install --no-ri --no-rdoc asciidoctor-pdf --pre
-RUN gem install --no-ri --no-rdoc pygments.rb
-
 ENV NOKOGIRI_USE_SYSTEM_LIBRARIES=1
-RUN gem install --no-ri --no-rdoc asciidoctor-epub3 --pre
-
 ENV MATHEMATICAL_SKIP_STRDUP=1
-RUN gem install --no-ri --no-rdoc asciidoctor-mathematical
+
+RUN gem install --no-ri --no-rdoc asciidoctor && \
+    gem install --no-ri --no-rdoc asciidoctor-diagram && \
+    gem install --no-ri --no-rdoc asciidoctor-pdf --pre && \
+    gem install --no-ri --no-rdoc pygments.rb && \ 
+    gem install --no-ri --no-rdoc asciidoctor-epub3 --pre && \
+    gem install --no-ri --no-rdoc asciidoctor-mathematical
 CMD [ "irb" ]
